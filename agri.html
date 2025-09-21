@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgriChain - Unlock the Story of Your Food</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        /* --- Custom Scrollbar --- */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1e293b; /* slate-800 */
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #4f46e5; /* indigo-600 */
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #6366f1; /* indigo-500 */
+        }
+
+        /* --- Aurora Background Animation --- */
+        @keyframes animate-aurora {
+            from {
+                transform: rotate(0deg) scale(1.5);
+            }
+            to {
+                transform: rotate(360deg) scale(1.5);
+            }
+        }
+        .aurora-element {
+            animation: animate-aurora 60s linear infinite;
+        }
+        
+        /* --- Gradient Vertical line for Timeline --- */
+        .timeline-item-connector::before {
+            content: '';
+            position: absolute;
+            left: 29px; /* Aligns with center of 60px icon */
+            top: 60px; /* Starts below the icon */
+            bottom: -2rem; /* Extends to the next item's top margin */
+            width: 2px;
+            background: linear-gradient(to bottom, #6366f1, #a855f7, #ec4899);
+            z-index: 0;
+        }
+
+        .timeline .timeline-item:last-child .timeline-item-connector::before {
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-slate-900 text-slate-700">
+
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <a href="#home" class="text-2xl font-bold text-white flex items-center gap-2 drop-shadow-lg">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.783-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" /></svg>
+                    AgriChain
+                </a>
+                
+                <ul class="hidden md:flex items-center space-x-2">
+                    <li><a href="#home" class="px-4 py-2 text-white font-medium rounded-full hover:bg-white/10 transition-colors">Home</a></li>
+                    <li><a href="#track" class="px-4 py-2 text-white font-medium rounded-full hover:bg-white/10 transition-colors">Track Product</a></li>
+                    <li><a href="#features" class="px-4 py-2 text-white font-medium rounded-full hover:bg-white/10 transition-colors">Features</a></li>
+                    <li><a href="#about" class="px-4 py-2 text-white font-medium rounded-full hover:bg-white/10 transition-colors">About</a></li>
+                </ul>
+                <a href="#contact" class="hidden md:inline-block bg-white/10 text-white font-semibold px-5 py-2 rounded-full border border-white/20 hover:bg-white/20 transition-all">Contact Us</a>
+
+                <button id="menu-btn" class="md:hidden text-white z-50">
+                    <svg id="menu-open-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16m-7 6h7" /></svg>
+                    <svg id="menu-close-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden fixed inset-0 bg-slate-900/95 backdrop-blur-xl">
+            <ul class="flex flex-col items-center justify-center h-full space-y-8">
+                 <li><a href="#home" class="text-3xl text-white font-medium">Home</a></li>
+                 <li><a href="#track" class="text-3xl text-white font-medium">Track Product</a></li>
+                 <li><a href="#features" class="text-3xl text-white font-medium">Features</a></li>
+                 <li><a href="#about" class="text-3xl text-white font-medium">About</a></li>
+                 <li><a href="#contact" class="text-3xl text-white font-medium">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden bg-slate-900">
+        <div class="absolute inset-0 z-0 opacity-40">
+            <div class="absolute inset-0 bg-gradient-to-tr from-indigo-500 to-purple-500 blur-3xl aurora-element"></div>
+            <div class="absolute inset-0 bg-gradient-to-bl from-green-500 to-teal-500 blur-3xl aurora-element" style="animation-delay: -5s;"></div>
+        </div>
+        <div class="container mx-auto px-6 text-center z-10">
+            <div class="animate-fade-in-up">
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white mb-4 leading-tight drop-shadow-xl">
+                    Unlock the Story of Your Food
+                </h1>
+                <p class="text-lg md:text-xl text-slate-300 max-w-2xl mx-auto mb-10">
+                    With blockchain precision, trace your food from its origin to your plate. Experience unparalleled transparency and trust in every bite.
+                </p>
+                <a href="#track" class="inline-flex items-center gap-3 bg-gradient-to-r from-green-400 to-teal-500 text-white font-bold text-lg px-8 py-4 rounded-full shadow-lg shadow-green-500/30 hover:shadow-2xl hover:shadow-green-500/40 transform hover:-translate-y-1.5 transition-all duration-300">
+                    Track a Product
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <div class="relative bg-slate-900">
+        <div class="absolute bottom-0 w-full">
+            <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1440 120V0C1201.33 80 962.667 120 724 120C485.333 120 246.667 80 0 0V120H1440Z" fill="#ffffff"/>
+            </svg>
+        </div>
+    </div>
+
+    <main class="bg-white relative z-10">
+        
+        <section id="track" class="pt-20 pb-24 md:pt-32 md:pb-32">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16 animate-on-scroll" data-animation="fade-up">
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">See The Full Journey</h2>
+                    <p class="text-slate-600 max-w-xl mx-auto">Enter a product ID to reveal its verified path from farm to you.</p>
+                </div>
+
+                <div class="max-w-2xl mx-auto bg-white p-6 rounded-2xl shadow-2xl shadow-slate-200/60 border border-slate-200/80 animate-on-scroll" data-animation="fade-up" data-delay="100">
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <input type="text" id="productId" class="flex-grow w-full px-5 py-4 text-lg bg-slate-50 border-2 border-slate-200 rounded-full focus:outline-none focus:ring-4 focus:ring-indigo-300 focus:border-indigo-500 transition" placeholder="e.g., AGR001234567" />
+                        <button onclick="trackProduct()" class="bg-indigo-600 text-white font-bold text-lg px-8 py-4 rounded-full shadow-lg shadow-indigo-500/30 hover:bg-indigo-700 transform hover:-translate-y-1 transition-all duration-300">
+                            Reveal Story
+                        </button>
+                    </div>
+                </div>
+                
+                <div id="trackingResults" class="max-w-3xl mx-auto mt-16 hidden">
+                    <div class="timeline space-y-8 relative">
+                        <div class="timeline-item flex items-start gap-6 animate-on-scroll" data-animation="fade-up">
+                            <div class="timeline-item-connector relative z-10 flex flex-col items-center">
+                                <div class="flex-shrink-0 w-15 h-15 rounded-full bg-gradient-to-br from-green-400 to-emerald-500 text-white flex items-center justify-center text-2xl shadow-lg shadow-emerald-500/30">🌱</div>
+                            </div>
+                            <div class="bg-white p-6 rounded-2xl shadow-md border border-slate-100 w-full">
+                                <h3 class="font-bold text-xl text-slate-900 mb-2">Farm Origin</h3>
+                                <p><strong>Green Valley Organic Farm,</strong> California</p>
+                                <p class="text-sm text-slate-500">Harvested: Sep 5, 2025</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item flex items-start gap-6 animate-on-scroll" data-animation="fade-up" data-delay="150">
+                             <div class="timeline-item-connector relative z-10 flex flex-col items-center">
+                                <div class="flex-shrink-0 w-15 h-15 rounded-full bg-gradient-to-br from-amber-400 to-orange-500 text-white flex items-center justify-center text-2xl shadow-lg shadow-orange-500/30">⚙️</div>
+                            </div>
+                            <div class="bg-white p-6 rounded-2xl shadow-md border border-slate-100 w-full">
+                                <h3 class="font-bold text-xl text-slate-900 mb-2">Processing</h3>
+                                <p><strong>FreshPack Processing Center</strong></p>
+                                <p class="text-sm text-slate-500">Processed: Sep 6, 2025 | Quality: ✅ Passed</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item flex items-start gap-6 animate-on-scroll" data-animation="fade-up" data-delay="300">
+                             <div class="timeline-item-connector relative z-10 flex flex-col items-center">
+                                <div class="flex-shrink-0 w-15 h-15 rounded-full bg-gradient-to-br from-sky-400 to-blue-500 text-white flex items-center justify-center text-2xl shadow-lg shadow-blue-500/30">🚛</div>
+                            </div>
+                            <div class="bg-white p-6 rounded-2xl shadow-md border border-slate-100 w-full">
+                                <h3 class="font-bold text-xl text-slate-900 mb-2">Transportation</h3>
+                                <p><strong>ColdChain Logistics,</strong> Truck #CC-812</p>
+                                <p class="text-sm text-slate-500">Shipped: Sep 7, 2025 | Temp: ✅ Maintained</p>
+                            </div>
+                        </div>
+                         <div class="timeline-item flex items-start gap-6 animate-on-scroll" data-animation="fade-up" data-delay="450">
+                             <div class="timeline-item-connector relative z-10 flex flex-col items-center">
+                                <div class="flex-shrink-0 w-15 h-15 rounded-full bg-gradient-to-br from-rose-400 to-red-500 text-white flex items-center justify-center text-2xl shadow-lg shadow-red-500/30">🏪</div>
+                            </div>
+                            <div class="bg-white p-6 rounded-2xl shadow-md border border-slate-100 w-full">
+                                <h3 class="font-bold text-xl text-slate-900 mb-2">Retail Store</h3>
+                                <p><strong>FreshMart Supermarket,</strong> Lucknow, UP</p>
+                                <p class="text-sm text-slate-500">Delivered: Sep 10, 2025 | Shelf Life: 7 days</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="py-24 md:py-32 bg-slate-50">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16 animate-on-scroll" data-animation="fade-up">
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">The AgriChain Advantage</h2>
+                    <p class="text-slate-600 max-w-xl mx-auto">More than just tracking, we're building an ecosystem of trust.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-white p-8 rounded-2xl text-center shadow-lg hover:shadow-indigo-200/50 hover:-translate-y-2 transition-all duration-300 animate-on-scroll" data-animation="fade-up">
+                        <div class="inline-block bg-indigo-100 text-indigo-600 p-4 rounded-full mb-4"><svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg></div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">Immutable Ledger</h3>
+                        <p class="text-slate-600">Every step is recorded on a tamper-proof blockchain, ensuring permanent and verifiable data.</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-2xl text-center shadow-lg hover:shadow-emerald-200/50 hover:-translate-y-2 transition-all duration-300 animate-on-scroll" data-animation="fade-up" data-delay="100">
+                        <div class="inline-block bg-emerald-100 text-emerald-600 p-4 rounded-full mb-4"><svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg></div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">Consumer Confidence</h3>
+                        <p class="text-slate-600">Empower consumers with clear, accessible proof of product authenticity and quality.</p>
+                    </div>
+                     <div class="bg-white p-8 rounded-2xl text-center shadow-lg hover:shadow-amber-200/50 hover:-translate-y-2 transition-all duration-300 animate-on-scroll" data-animation="fade-up" data-delay="200">
+                         <div class="inline-block bg-amber-100 text-amber-600 p-4 rounded-full mb-4"><svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">Real-time Insights</h3>
+                        <p class="text-slate-600">Access live data on location, temperature, and handling at any point in the supply chain.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="stats" class="py-24 md:py-32 bg-slate-900 text-white">
+            <div class="container mx-auto px-6">
+                 <div class="text-center mb-16 animate-on-scroll" data-animation="fade-up">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Our Growing Network</h2>
+                    <p class="text-slate-400 max-w-xl mx-auto">Building a more transparent global food system, one product at a time.</p>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+                    <div class="text-center p-6 bg-white/5 rounded-2xl animate-on-scroll" data-animation="fade-up">
+                        <div class="stat-number text-5xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 to-teal-400 mb-2" data-count="50000">0</div>
+                        <div class="stat-label text-slate-400 uppercase tracking-widest text-sm">Products Tracked</div>
+                    </div>
+                     <div class="text-center p-6 bg-white/5 rounded-2xl animate-on-scroll" data-animation="fade-up" data-delay="100">
+                        <div class="stat-number text-5xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-sky-400 to-blue-400 mb-2" data-count="1200">0</div>
+                        <div class="stat-label text-slate-400 uppercase tracking-widest text-sm">Partner Farms</div>
+                    </div>
+                     <div class="text-center p-6 bg-white/5 rounded-2xl animate-on-scroll" data-animation="fade-up" data-delay="200">
+                        <div class="stat-number text-5xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-amber-400 to-orange-400 mb-2" data-count="98">0</div>
+                        <div class="stat-label text-slate-400 uppercase tracking-widest text-sm">% Traceability</div>
+                    </div>
+                     <div class="text-center p-6 bg-white/5 rounded-2xl animate-on-scroll" data-animation="fade-up" data-delay="300">
+                        <div class="stat-number text-5xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-rose-400 to-pink-400 mb-2" data-count="25">0</div>
+                        <div class="stat-label text-slate-400 uppercase tracking-widest text-sm">Countries Served</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="py-24 md:py-32 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="max-w-3xl mx-auto text-center animate-on-scroll" data-animation="fade-up">
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-6">Our Mission: A Chain of Trust</h2>
+                    <p class="text-lg text-slate-600 leading-relaxed mb-6">
+                        At AgriChain, our mission is to restore trust in the global food supply. We leverage the power of blockchain to create a transparent, secure, and unified ecosystem connecting farmers, distributors, and consumers.
+                    </p>
+                    <p class="text-slate-500">
+                        We envision a world where every meal comes with a story you can trust.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contact" class="bg-slate-900 text-slate-400">
+        <div class="container mx-auto px-6 py-16">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-12 mb-8">
+                <div class="md:col-span-5">
+                    <h3 class="text-xl font-bold text-white mb-4">AgriChain</h3>
+                    <p class="max-w-md mb-6">Building the future of food transparency.</p>
+                </div>
+                <div class="md:col-span-2">
+                    <h3 class="text-lg font-semibold text-white mb-4">Explore</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#track" class="hover:text-white transition-colors">Track</a></li>
+                        <li><a href="#features" class="hover:text-white transition-colors">Features</a></li>
+                        <li><a href="#about" class="hover:text-white transition-colors">About Us</a></li>
+                    </ul>
+                </div>
+                <div class="md:col-span-3">
+                     <h3 class="text-lg font-semibold text-white mb-4">Contact</h3>
+                     <ul class="space-y-2">
+                        <li><a href="mailto:info@agrichain.com" class="hover:text-white transition-colors">info@agrichain.com</a></li>
+                        <li><a href="tel:+915221234567" class="hover:text-white transition-colors">+91 (522) 123-4567</a></li>
+                        <li>Lucknow, Uttar Pradesh, India</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-slate-800 pt-8 mt-8 text-center text-sm">
+                <p>&copy; 2025 AgriChain. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            const navbar = document.getElementById('navbar');
+            const menuBtn = document.getElementById('menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const openIcon = document.getElementById('menu-open-icon');
+            const closeIcon = document.getElementById('menu-close-icon');
+
+            // --- Navigation Bar Logic ---
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('bg-slate-900/80', 'backdrop-blur-lg', 'shadow-lg');
+                } else {
+                    navbar.classList.remove('bg-slate-900/80', 'backdrop-blur-lg', 'shadow-lg');
+                }
+            });
+
+            const toggleMenu = () => {
+                mobileMenu.classList.toggle('hidden');
+                openIcon.classList.toggle('hidden');
+                closeIcon.classList.toggle('hidden');
+                document.body.classList.toggle('overflow-hidden');
+            };
+
+            menuBtn.addEventListener('click', toggleMenu);
+            mobileMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', toggleMenu));
+
+            // --- Track Product Logic ---
+            window.trackProduct = function() {
+                const productId = document.getElementById('productId').value;
+                const trackingResults = document.getElementById('trackingResults');
+                if (productId.trim() === '') return alert('Please enter a valid Product ID');
+                
+                trackingResults.classList.remove('hidden');
+                setTimeout(() => trackingResults.scrollIntoView({ behavior: 'smooth', block: 'center' }), 300);
+            }
+
+            // --- Animation on Scroll Logic ---
+            const animatedElements = document.querySelectorAll('.animate-on-scroll');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const delay = parseInt(entry.target.dataset.delay || 0);
+                        setTimeout(() => {
+                            entry.target.classList.add('is-visible');
+                            // Start counter if it's a stat number
+                            const counter = entry.target.querySelector('.stat-number');
+                            if (counter && !counter.classList.contains('animated')) {
+                                animateCounter(counter);
+                                counter.classList.add('animated');
+                            }
+                        }, delay);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            animatedElements.forEach(el => observer.observe(el));
+            
+            // Add animation styles dynamically
+            const style = document.createElement('style');
+            style.innerHTML = `
+                .animate-on-scroll {
+                    opacity: 0;
+                    transform: translateY(30px);
+                    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+                }
+                .animate-on-scroll.is-visible {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            `;
+            document.head.appendChild(style);
+
+            // --- Counter Animation ---
+            function animateCounter(counter) {
+                const target = +counter.getAttribute('data-count');
+                let current = 0;
+                const updateCounter = () => {
+                    const increment = Math.ceil(target / 100);
+                    current += increment;
+                    if (current < target) {
+                        counter.innerText = current.toLocaleString();
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        counter.innerText = target.toLocaleString();
+                    }
+                };
+                updateCounter();
+            }
+        });
+    </script>
+</body>
+</html>
