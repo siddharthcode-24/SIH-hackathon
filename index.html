@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AgriChain - Unlock the Story of Your Food</title>
+    <title data-lang-en="AgriChain - Unlock the Story of Your Food" data-lang-hi="एग्रीचेन - अपने भोजन की कहानी जानें">AgriChain - Unlock the Story of Your Food</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
     
@@ -11,57 +11,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-        
-        /* --- Custom Scrollbar --- */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #1e293b; /* slate-800 */
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #4f46e5; /* indigo-600 */
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #6366f1; /* indigo-500 */
-        }
-
-        /* --- Aurora Background Animation --- */
-        @keyframes animate-aurora {
-            from {
-                transform: rotate(0deg) scale(1.5);
-            }
-            to {
-                transform: rotate(360deg) scale(1.5);
-            }
-        }
-        .aurora-element {
-            animation: animate-aurora 60s linear infinite;
-        }
-        
-        /* --- Gradient Vertical line for Timeline --- */
-        .timeline-item-connector::before {
-            content: '';
-            position: absolute;
-            left: 29px; /* Aligns with center of 60px icon */
-            top: 60px; /* Starts below the icon */
-            bottom: -2rem; /* Extends to the next item's top margin */
-            width: 2px;
-            background: linear-gradient(to bottom, #6366f1, #a855f7, #ec4899);
-            z-index: 0;
-        }
-
-        .timeline .timeline-item:last-child .timeline-item-connector::before {
-            display: none;
-        }
-    </style>
 </head>
 <body class="bg-slate-900 text-slate-700">
 
@@ -74,26 +23,33 @@
                 </a>
                 
                 <ul class="hidden md:flex items-center space-x-2">
-                    <li><a href="#home" class="px-4 py-2 text-white font-medium rounded-full hover:bg-white/10 transition-colors">Home</a></li>
-                    <li><a href="#track" class="px-4 py-2 text-white font-medium rounded-full hover:bg-white/10 transition-colors">Track Product</a></li>
-                    <li><a href="#features" class="px-4 py-2 text-white font-medium rounded-full hover:bg-white/10 transition-colors">Features</a></li>
-                    <li><a href="#about" class="px-4 py-2 text-white font-medium rounded-full hover:bg-white/10 transition-colors">About</a></li>
+                    <li><a href="#home" class="px-4 py-2 text-white font-medium rounded-full hover:bg-white/10 transition-colors" data-lang-en="Home" data-lang-hi="मुख्य पृष्ठ">Home</a></li>
+                    <li><a href="#track" class="px-4 py-2 text-white font-medium rounded-full hover:bg-white/10 transition-colors" data-lang-en="Track Product" data-lang-hi="उत्पाद ट्रैक करें">Track Product</a></li>
+                    <li><a href="#features" class="px-4 py-2 text-white font-medium rounded-full hover:bg-white/10 transition-colors" data-lang-en="Features" data-lang-hi="विशेषताएँ">Features</a></li>
+                    <li><a href="#about" class="px-4 py-2 text-white font-medium rounded-full hover:bg-white/10 transition-colors" data-lang-en="About" data-lang-hi="हमारे बारे में">About</a></li>
                 </ul>
-                <a href="#contact" class="hidden md:inline-block bg-white/10 text-white font-semibold px-5 py-2 rounded-full border border-white/20 hover:bg-white/20 transition-all">Contact Us</a>
 
-                <button id="menu-btn" class="md:hidden text-white z-50">
-                    <svg id="menu-open-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16m-7 6h7" /></svg>
-                    <svg id="menu-close-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
-                </button>
+                <div class="flex items-center gap-4">
+                    <select id="language-selector" class="bg-slate-700 text-white rounded-full py-2 px-3 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                        <option value="en">English</option>
+                        <option value="hi">हिन्दी</option>
+                    </select>
+                    <a href="#contact" class="hidden md:inline-block bg-white/10 text-white font-semibold px-5 py-2 rounded-full border border-white/20 hover:bg-white/20 transition-all" data-lang-en="Contact Us" data-lang-hi="हमसे संपर्क करें">Contact Us</a>
+
+                    <button id="menu-btn" class="md:hidden text-white z-50">
+                        <svg id="menu-open-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16m-7 6h7" /></svg>
+                        <svg id="menu-close-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
+                    </button>
+                </div>
             </div>
         </div>
         <div id="mobile-menu" class="hidden md:hidden fixed inset-0 bg-slate-900/95 backdrop-blur-xl">
             <ul class="flex flex-col items-center justify-center h-full space-y-8">
-                 <li><a href="#home" class="text-3xl text-white font-medium">Home</a></li>
-                 <li><a href="#track" class="text-3xl text-white font-medium">Track Product</a></li>
-                 <li><a href="#features" class="text-3xl text-white font-medium">Features</a></li>
-                 <li><a href="#about" class="text-3xl text-white font-medium">About</a></li>
-                 <li><a href="#contact" class="text-3xl text-white font-medium">Contact</a></li>
+                 <li><a href="#home" class="text-3xl text-white font-medium" data-lang-en="Home" data-lang-hi="मुख्य पृष्ठ">Home</a></li>
+                 <li><a href="#track" class="text-3xl text-white font-medium" data-lang-en="Track Product" data-lang-hi="उत्पाद ट्रैक करें">Track Product</a></li>
+                 <li><a href="#features" class="text-3xl text-white font-medium" data-lang-en="Features" data-lang-hi="विशेषताएँ">Features</a></li>
+                 <li><a href="#about" class="text-3xl text-white font-medium" data-lang-en="About" data-lang-hi="हमारे बारे में">About</a></li>
+                 <li><a href="#contact" class="text-3xl text-white font-medium" data-lang-en="Contact" data-lang-hi="संपर्क करें">Contact</a></li>
             </ul>
         </div>
     </nav>
@@ -103,18 +59,21 @@
             <div class="absolute inset-0 bg-gradient-to-tr from-indigo-500 to-purple-500 blur-3xl aurora-element"></div>
             <div class="absolute inset-0 bg-gradient-to-bl from-green-500 to-teal-500 blur-3xl aurora-element" style="animation-delay: -5s;"></div>
         </div>
-        <div class="container mx-auto px-6 text-center z-10">
-            <div class="animate-fade-in-up">
-                <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white mb-4 leading-tight drop-shadow-xl">
+        <div class="container mx-auto px-6 text-center z-10 grid grid-cols-1 md:grid-cols-2 items-center gap-12">
+            <div class="animate-fade-in-up md:order-1">
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white mb-4 leading-tight drop-shadow-xl" data-lang-en="Unlock the Story of Your Food" data-lang-hi="अपने भोजन की कहानी जानें">
                     Unlock the Story of Your Food
                 </h1>
-                <p class="text-lg md:text-xl text-slate-300 max-w-2xl mx-auto mb-10">
+                <p class="text-lg md:text-xl text-slate-300 max-w-2xl mx-auto mb-10" data-lang-en="With blockchain precision, trace your food from its origin to your plate. Experience unparalleled transparency and trust in every bite." data-lang-hi="ब्लॉकचेन की सटीकता के साथ, अपने भोजन को उसके मूल से लेकर अपनी थाली तक ट्रैक करें। हर निवाले में अद्वितीय पारदर्शिता और विश्वास का अनुभव करें।">
                     With blockchain precision, trace your food from its origin to your plate. Experience unparalleled transparency and trust in every bite.
                 </p>
-                <a href="#track" class="inline-flex items-center gap-3 bg-gradient-to-r from-green-400 to-teal-500 text-white font-bold text-lg px-8 py-4 rounded-full shadow-lg shadow-green-500/30 hover:shadow-2xl hover:shadow-green-500/40 transform hover:-translate-y-1.5 transition-all duration-300">
+                <a href="#track" class="inline-flex items-center gap-3 bg-gradient-to-r from-green-400 to-teal-500 text-white font-bold text-lg px-8 py-4 rounded-full shadow-lg shadow-green-500/30 hover:shadow-2xl hover:shadow-green-500/40 transform hover:-translate-y-1.5 transition-all duration-300" data-lang-en="Track a Product" data-lang-hi="एक उत्पाद ट्रैक करें">
                     Track a Product
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
                 </a>
+            </div>
+            <div class="md:order-2 mt-10 md:mt-0 flex justify-center animate-fade-in-up" data-delay="200">
+                <img src="India_Farming.jpg" alt="Farmer working in a lush green field" class="rounded-3xl shadow-2xl shadow-indigo-500/40 border-4 border-white/20 w-full max-w-md lg:max-w-lg object-cover">
             </div>
         </div>
     </header>
@@ -132,14 +91,14 @@
         <section id="track" class="pt-20 pb-24 md:pt-32 md:pb-32">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-16 animate-on-scroll" data-animation="fade-up">
-                    <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">See The Full Journey</h2>
-                    <p class="text-slate-600 max-w-xl mx-auto">Enter a product ID to reveal its verified path from farm to you.</p>
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4" data-lang-en="See The Full Journey" data-lang-hi="पूरी यात्रा देखें">See The Full Journey</h2>
+                    <p class="text-slate-600 max-w-xl mx-auto" data-lang-en="Enter a product ID to reveal its verified path from farm to you." data-lang-hi="अपने उत्पाद का सत्यापित पथ जानने के लिए एक उत्पाद आईडी दर्ज करें।">Enter a product ID to reveal its verified path from farm to you.</p>
                 </div>
 
                 <div class="max-w-2xl mx-auto bg-white p-6 rounded-2xl shadow-2xl shadow-slate-200/60 border border-slate-200/80 animate-on-scroll" data-animation="fade-up" data-delay="100">
                     <div class="flex flex-col sm:flex-row gap-4">
-                        <input type="text" id="productId" class="flex-grow w-full px-5 py-4 text-lg bg-slate-50 border-2 border-slate-200 rounded-full focus:outline-none focus:ring-4 focus:ring-indigo-300 focus:border-indigo-500 transition" placeholder="e.g., AGR001234567" />
-                        <button onclick="trackProduct()" class="bg-indigo-600 text-white font-bold text-lg px-8 py-4 rounded-full shadow-lg shadow-indigo-500/30 hover:bg-indigo-700 transform hover:-translate-y-1 transition-all duration-300">
+                        <input type="text" id="productId" class="flex-grow w-full px-5 py-4 text-lg bg-slate-50 border-2 border-slate-200 rounded-full focus:outline-none focus:ring-4 focus:ring-indigo-300 focus:border-indigo-500 transition" placeholder="e.g., AGR001234567" data-lang-en-placeholder="e.g., AGR001234567" data-lang-hi-placeholder="उदाहरण के लिए, AGR001234567" />
+                        <button onclick="trackProduct()" class="bg-indigo-600 text-white font-bold text-lg px-8 py-4 rounded-full shadow-lg shadow-indigo-500/30 hover:bg-indigo-700 transform hover:-translate-y-1 transition-all duration-300" data-lang-en="Reveal Story" data-lang-hi="कहानी जानें">
                             Reveal Story
                         </button>
                     </div>
@@ -152,9 +111,9 @@
                                 <div class="flex-shrink-0 w-15 h-15 rounded-full bg-gradient-to-br from-green-400 to-emerald-500 text-white flex items-center justify-center text-2xl shadow-lg shadow-emerald-500/30">🌱</div>
                             </div>
                             <div class="bg-white p-6 rounded-2xl shadow-md border border-slate-100 w-full">
-                                <h3 class="font-bold text-xl text-slate-900 mb-2">Farm Origin</h3>
-                                <p><strong>Green Valley Organic Farm,</strong> California</p>
-                                <p class="text-sm text-slate-500">Harvested: Sep 5, 2025</p>
+                                <h3 class="font-bold text-xl text-slate-900 mb-2" data-lang-en="Farm Origin" data-lang-hi="खेत का मूल">Farm Origin</h3>
+                                <p><strong data-lang-en="Green Valley Organic Farm," data-lang-hi="ग्रीन वैली ऑर्गेनिक फार्म,">Green Valley Organic Farm,</strong> <span data-lang-en="California" data-lang-hi="कैलिफ़ोर्निया">California</span></p>
+                                <p class="text-sm text-slate-500"><span data-lang-en="Harvested: Sep 5, 2025" data-lang-hi="कटाई: 5 सितंबर, 2025">Harvested: Sep 5, 2025</span></p>
                             </div>
                         </div>
                         <div class="timeline-item flex items-start gap-6 animate-on-scroll" data-animation="fade-up" data-delay="150">
@@ -162,9 +121,9 @@
                                 <div class="flex-shrink-0 w-15 h-15 rounded-full bg-gradient-to-br from-amber-400 to-orange-500 text-white flex items-center justify-center text-2xl shadow-lg shadow-orange-500/30">⚙️</div>
                             </div>
                             <div class="bg-white p-6 rounded-2xl shadow-md border border-slate-100 w-full">
-                                <h3 class="font-bold text-xl text-slate-900 mb-2">Processing</h3>
-                                <p><strong>FreshPack Processing Center</strong></p>
-                                <p class="text-sm text-slate-500">Processed: Sep 6, 2025 | Quality: ✅ Passed</p>
+                                <h3 class="font-bold text-xl text-slate-900 mb-2" data-lang-en="Processing" data-lang-hi="प्रसंस्करण">Processing</h3>
+                                <p><strong data-lang-en="FreshPack Processing Center" data-lang-hi="फ्रेशपैक प्रोसेसिंग सेंटर">FreshPack Processing Center</strong></p>
+                                <p class="text-sm text-slate-500"><span data-lang-en="Processed: Sep 6, 2025 | Quality: ✅ Passed" data-lang-hi="प्रसंस्कृत: 6 सितंबर, 2025 | गुणवत्ता: ✅ उत्तीर्ण">Processed: Sep 6, 2025 | Quality: ✅ Passed</span></p>
                             </div>
                         </div>
                         <div class="timeline-item flex items-start gap-6 animate-on-scroll" data-animation="fade-up" data-delay="300">
@@ -172,9 +131,9 @@
                                 <div class="flex-shrink-0 w-15 h-15 rounded-full bg-gradient-to-br from-sky-400 to-blue-500 text-white flex items-center justify-center text-2xl shadow-lg shadow-blue-500/30">🚛</div>
                             </div>
                             <div class="bg-white p-6 rounded-2xl shadow-md border border-slate-100 w-full">
-                                <h3 class="font-bold text-xl text-slate-900 mb-2">Transportation</h3>
-                                <p><strong>ColdChain Logistics,</strong> Truck #CC-812</p>
-                                <p class="text-sm text-slate-500">Shipped: Sep 7, 2025 | Temp: ✅ Maintained</p>
+                                <h3 class="font-bold text-xl text-slate-900 mb-2" data-lang-en="Transportation" data-lang-hi="परिवहन">Transportation</h3>
+                                <p><strong data-lang-en="ColdChain Logistics," data-lang-hi="कोल्डचेन लॉजिस्टिक्स,">ColdChain Logistics,</strong> <span data-lang-en="Truck #CC-812" data-lang-hi="ट्रक #CC-812">Truck #CC-812</span></p>
+                                <p class="text-sm text-slate-500"><span data-lang-en="Shipped: Sep 7, 2025 | Temp: ✅ Maintained" data-lang-hi="शिपिंग: 7 सितंबर, 2025 | तापमान: ✅ बनाए रखा गया">Shipped: Sep 7, 2025 | Temp: ✅ Maintained</span></p>
                             </div>
                         </div>
                          <div class="timeline-item flex items-start gap-6 animate-on-scroll" data-animation="fade-up" data-delay="450">
@@ -182,9 +141,9 @@
                                 <div class="flex-shrink-0 w-15 h-15 rounded-full bg-gradient-to-br from-rose-400 to-red-500 text-white flex items-center justify-center text-2xl shadow-lg shadow-red-500/30">🏪</div>
                             </div>
                             <div class="bg-white p-6 rounded-2xl shadow-md border border-slate-100 w-full">
-                                <h3 class="font-bold text-xl text-slate-900 mb-2">Retail Store</h3>
-                                <p><strong>FreshMart Supermarket,</strong> Lucknow, UP</p>
-                                <p class="text-sm text-slate-500">Delivered: Sep 10, 2025 | Shelf Life: 7 days</p>
+                                <h3 class="font-bold text-xl text-slate-900 mb-2" data-lang-en="Retail Store" data-lang-hi="खुदरा दुकान">Retail Store</h3>
+                                <p><strong data-lang-en="FreshMart Supermarket," data-lang-hi="फ्रेशमार्ट सुपरमार्केट,">FreshMart Supermarket,</strong> <span data-lang-en="Lucknow, UP" data-lang-hi="लखनऊ, उत्तर प्रदेश">Lucknow, UP</span></p>
+                                <p class="text-sm text-slate-500"><span data-lang-en="Delivered: Sep 10, 2025 | Shelf Life: 7 days" data-lang-hi="वितरित: 10 सितंबर, 2025 | शेल्फ लाइफ: 7 दिन">Delivered: Sep 10, 2025 | Shelf Life: 7 days</span></p>
                             </div>
                         </div>
                     </div>
@@ -195,51 +154,76 @@
         <section id="features" class="py-24 md:py-32 bg-slate-50">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-16 animate-on-scroll" data-animation="fade-up">
-                    <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">The AgriChain Advantage</h2>
-                    <p class="text-slate-600 max-w-xl mx-auto">More than just tracking, we're building an ecosystem of trust.</p>
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4" data-lang-en="The AgriChain Advantage" data-lang-hi="एग्रीचेन का लाभ">The AgriChain Advantage</h2>
+                    <p class="text-slate-600 max-w-xl mx-auto" data-lang-en="More than just tracking, we're building an ecosystem of trust." data-lang-hi="केवल ट्रैकिंग से बढ़कर, हम विश्वास का एक पारिस्थितिकी तंत्र बना रहे हैं।">More than just tracking, we're building an ecosystem of trust.</p>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <div class="bg-white p-8 rounded-2xl text-center shadow-lg hover:shadow-indigo-200/50 hover:-translate-y-2 transition-all duration-300 animate-on-scroll" data-animation="fade-up">
                         <div class="inline-block bg-indigo-100 text-indigo-600 p-4 rounded-full mb-4"><svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg></div>
-                        <h3 class="text-xl font-bold text-slate-900 mb-2">Immutable Ledger</h3>
-                        <p class="text-slate-600">Every step is recorded on a tamper-proof blockchain, ensuring permanent and verifiable data.</p>
+                        <h3 class="text-xl font-bold text-slate-900 mb-2" data-lang-en="Immutable Ledger" data-lang-hi="अपरिवर्तनीय बहीखाता">Immutable Ledger</h3>
+                        <p class="text-slate-600" data-lang-en="Every step is recorded on a tamper-proof blockchain, ensuring permanent and verifiable data." data-lang-hi="प्रत्येक चरण को छेड़छाड़-रोधी ब्लॉकचेन पर दर्ज किया जाता है, जो स्थायी और सत्यापन योग्य डेटा सुनिश्चित करता है।">Every step is recorded on a tamper-proof blockchain, ensuring permanent and verifiable data.</p>
                     </div>
                     <div class="bg-white p-8 rounded-2xl text-center shadow-lg hover:shadow-emerald-200/50 hover:-translate-y-2 transition-all duration-300 animate-on-scroll" data-animation="fade-up" data-delay="100">
                         <div class="inline-block bg-emerald-100 text-emerald-600 p-4 rounded-full mb-4"><svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg></div>
-                        <h3 class="text-xl font-bold text-slate-900 mb-2">Consumer Confidence</h3>
-                        <p class="text-slate-600">Empower consumers with clear, accessible proof of product authenticity and quality.</p>
+                        <h3 class="text-xl font-bold text-slate-900 mb-2" data-lang-en="Consumer Confidence" data-lang-hi="उपभोक्ता विश्वास">Consumer Confidence</h3>
+                        <p class="text-slate-600" data-lang-en="Empower consumers with clear, accessible proof of product authenticity and quality." data-lang-hi="उपभोक्ताओं को उत्पाद की प्रामाणिकता और गुणवत्ता का स्पष्ट, सुलभ प्रमाण प्रदान करें।">Empower consumers with clear, accessible proof of product authenticity and quality.</p>
                     </div>
                      <div class="bg-white p-8 rounded-2xl text-center shadow-lg hover:shadow-amber-200/50 hover:-translate-y-2 transition-all duration-300 animate-on-scroll" data-animation="fade-up" data-delay="200">
                          <div class="inline-block bg-amber-100 text-amber-600 p-4 rounded-full mb-4"><svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
-                        <h3 class="text-xl font-bold text-slate-900 mb-2">Real-time Insights</h3>
-                        <p class="text-slate-600">Access live data on location, temperature, and handling at any point in the supply chain.</p>
+                        <h3 class="text-xl font-bold text-slate-900 mb-2" data-lang-en="Real-time Insights" data-lang-hi="वास्तविक समय की अंतर्दृष्टि">Real-time Insights</h3>
+                        <p class="text-slate-600" data-lang-en="Access live data on location, temperature, and handling at any point in the supply chain." data-lang-hi="आपूर्ति श्रृंखला में किसी भी बिंदु पर स्थान, तापमान और हैंडलिंग पर लाइव डेटा तक पहुंचें।">Access live data on location, temperature, and handling at any point in the supply chain.</p>
                     </div>
                 </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mt-20 md:mt-32 items-center">
+                    <div class="animate-on-scroll" data-animation="fade-up">
+                        <img src="img.jpg" alt="Group of farmers discussing in a field" class="rounded-3xl shadow-2xl shadow-green-500/40 border-4 border-white/20 w-full object-cover">
+                    </div>
+                    <div class="text-center md:text-left animate-on-scroll" data-animation="fade-up" data-delay="150">
+                        <h3 class="text-3xl font-bold text-slate-900 mb-4" data-lang-en="From Farm to Fork, Transparently" data-lang-hi="खेत से थाली तक, पारदर्शिता से">From Farm to Fork, Transparently</h3>
+                        <p class="text-lg text-slate-600 leading-relaxed mb-6" data-lang-en="We partner directly with farmers, empowering them with technology to record every critical detail, ensuring fair practices and premium quality produce reaches you." data-lang-hi="हम सीधे किसानों के साथ साझेदारी करते हैं, उन्हें हर महत्वपूर्ण विवरण दर्ज करने के लिए प्रौद्योगिकी के साथ सशक्त बनाते हैं, यह सुनिश्चित करते हुए कि उचित प्रथाएं और प्रीमियम गुणवत्ता वाले उत्पाद आप तक पहुंचें।">
+                            We partner directly with farmers, empowering them with technology to record every critical detail, ensuring fair practices and premium quality produce reaches you.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mt-20 md:mt-32 items-center flex-col-reverse md:flex-col-reverse">
+                    <div class="text-center md:text-right animate-on-scroll md:order-2" data-animation="fade-up">
+                        <h3 class="text-3xl font-bold text-slate-900 mb-4" data-lang-en="Ensuring Quality Every Step" data-lang-hi="हर कदम पर गुणवत्ता सुनिश्चित करना">Ensuring Quality Every Step</h3>
+                        <p class="text-lg text-slate-600 leading-relaxed mb-6" data-lang-en="Our blockchain solution tracks not just origin, but also conditions like temperature, humidity, and handling, providing a complete quality assurance report for every product." data-lang-hi="हमारा ब्लॉकचेन समाधान न केवल उत्पत्ति को ट्रैक करता है, बल्कि तापमान, आर्द्रता और हैंडलिंग जैसी स्थितियों को भी ट्रैक करता है, जो प्रत्येक उत्पाद के लिए एक पूर्ण गुणवत्ता आश्वासन रिपोर्ट प्रदान करता है।">
+                            Our blockchain solution tracks not just origin, but also conditions like temperature, humidity, and handling, providing a complete quality assurance report for every product.
+                        </p>
+                    </div>
+                    <div class="animate-on-scroll md:order-1" data-animation="fade-up" data-delay="150">
+                        <img src="project.jpeg" alt="Hands inspecting fresh produce on a conveyor belt" class="rounded-3xl shadow-2xl shadow-blue-500/40 border-4 border-white/20 w-full object-cover">
+                    </div>
+                </div>
+
             </div>
         </section>
 
         <section id="stats" class="py-24 md:py-32 bg-slate-900 text-white">
             <div class="container mx-auto px-6">
                  <div class="text-center mb-16 animate-on-scroll" data-animation="fade-up">
-                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Our Growing Network</h2>
-                    <p class="text-slate-400 max-w-xl mx-auto">Building a more transparent global food system, one product at a time.</p>
+                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-4" data-lang-en="Our Growing Network" data-lang-hi="हमारा बढ़ता नेटवर्क">Our Growing Network</h2>
+                    <p class="text-slate-400 max-w-xl mx-auto" data-lang-en="Building a more transparent global food system, one product at a time." data-lang-hi="एक समय में एक उत्पाद, एक अधिक पारदर्शी वैश्विक खाद्य प्रणाली का निर्माण।">Building a more transparent global food system, one product at a time.</p>
                 </div>
                 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
                     <div class="text-center p-6 bg-white/5 rounded-2xl animate-on-scroll" data-animation="fade-up">
                         <div class="stat-number text-5xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 to-teal-400 mb-2" data-count="50000">0</div>
-                        <div class="stat-label text-slate-400 uppercase tracking-widest text-sm">Products Tracked</div>
+                        <div class="stat-label text-slate-400 uppercase tracking-widest text-sm" data-lang-en="Products Tracked" data-lang-hi="ट्रैक किए गए उत्पाद">Products Tracked</div>
                     </div>
                      <div class="text-center p-6 bg-white/5 rounded-2xl animate-on-scroll" data-animation="fade-up" data-delay="100">
                         <div class="stat-number text-5xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-sky-400 to-blue-400 mb-2" data-count="1200">0</div>
-                        <div class="stat-label text-slate-400 uppercase tracking-widest text-sm">Partner Farms</div>
+                        <div class="stat-label text-slate-400 uppercase tracking-widest text-sm" data-lang-en="Partner Farms" data-lang-hi="साझेदार खेत">Partner Farms</div>
                     </div>
                      <div class="text-center p-6 bg-white/5 rounded-2xl animate-on-scroll" data-animation="fade-up" data-delay="200">
                         <div class="stat-number text-5xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-amber-400 to-orange-400 mb-2" data-count="98">0</div>
-                        <div class="stat-label text-slate-400 uppercase tracking-widest text-sm">% Traceability</div>
+                        <div class="stat-label text-slate-400 uppercase tracking-widest text-sm" data-lang-en="% Traceability" data-lang-hi="% पता लगाने की क्षमता">% Traceability</div>
                     </div>
                      <div class="text-center p-6 bg-white/5 rounded-2xl animate-on-scroll" data-animation="fade-up" data-delay="300">
                         <div class="stat-number text-5xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-rose-400 to-pink-400 mb-2" data-count="25">0</div>
-                        <div class="stat-label text-slate-400 uppercase tracking-widest text-sm">Countries Served</div>
+                        <div class="stat-label text-slate-400 uppercase tracking-widest text-sm" data-lang-en="Countries Served" data-lang-hi="सेवा दिए गए देश">Countries Served</div>
                     </div>
                 </div>
             </div>
@@ -248,11 +232,11 @@
         <section id="about" class="py-24 md:py-32 bg-white">
             <div class="container mx-auto px-6">
                 <div class="max-w-3xl mx-auto text-center animate-on-scroll" data-animation="fade-up">
-                    <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-6">Our Mission: A Chain of Trust</h2>
-                    <p class="text-lg text-slate-600 leading-relaxed mb-6">
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-6" data-lang-en="Our Mission: A Chain of Trust" data-lang-hi="हमारा मिशन: विश्वास की एक श्रृंखला">Our Mission: A Chain of Trust</h2>
+                    <p class="text-lg text-slate-600 leading-relaxed mb-6" data-lang-en="At AgriChain, our mission is to restore trust in the global food supply. We leverage the power of blockchain to create a transparent, secure, and unified ecosystem connecting farmers, distributors, and consumers." data-lang-hi="एग्रीचेन में, हमारा मिशन वैश्विक खाद्य आपूर्ति में विश्वास बहाल करना है। हम किसानों, वितरकों और उपभोक्ताओं को जोड़ने वाले एक पारदर्शी, सुरक्षित और एकीकृत पारिस्थितिकी तंत्र बनाने के लिए ब्लॉकचेन की शक्ति का लाभ उठाते हैं।">
                         At AgriChain, our mission is to restore trust in the global food supply. We leverage the power of blockchain to create a transparent, secure, and unified ecosystem connecting farmers, distributors, and consumers.
                     </p>
-                    <p class="text-slate-500">
+                    <p class="text-slate-500" data-lang-en="We envision a world where every meal comes with a story you can trust." data-lang-hi="हम एक ऐसी दुनिया की कल्पना करते हैं जहाँ हर भोजन एक ऐसी कहानी के साथ आता है जिस पर आप भरोसा कर सकते हैं।">
                         We envision a world where every meal comes with a story you can trust.
                     </p>
                 </div>
@@ -265,27 +249,27 @@
             <div class="grid grid-cols-1 md:grid-cols-12 gap-12 mb-8">
                 <div class="md:col-span-5">
                     <h3 class="text-xl font-bold text-white mb-4">AgriChain</h3>
-                    <p class="max-w-md mb-6">Building the future of food transparency.</p>
+                    <p class="max-w-md mb-6" data-lang-en="Building the future of food transparency." data-lang-hi="खाद्य पारदर्शिता के भविष्य का निर्माण।">Building the future of food transparency.</p>
                 </div>
                 <div class="md:col-span-2">
-                    <h3 class="text-lg font-semibold text-white mb-4">Explore</h3>
+                    <h3 class="text-lg font-semibold text-white mb-4" data-lang-en="Explore" data-lang-hi="अन्वेषण करें">Explore</h3>
                     <ul class="space-y-2">
-                        <li><a href="#track" class="hover:text-white transition-colors">Track</a></li>
-                        <li><a href="#features" class="hover:text-white transition-colors">Features</a></li>
-                        <li><a href="#about" class="hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="#track" class="hover:text-white transition-colors" data-lang-en="Track" data-lang-hi="ट्रैक करें">Track</a></li>
+                        <li><a href="#features" class="hover:text-white transition-colors" data-lang-en="Features" data-lang-hi="विशेषताएँ">Features</a></li>
+                        <li><a href="#about" class="hover:text-white transition-colors" data-lang-en="About Us" data-lang-hi="हमारे बारे में">About Us</a></li>
                     </ul>
                 </div>
                 <div class="md:col-span-3">
-                     <h3 class="text-lg font-semibold text-white mb-4">Contact</h3>
+                     <h3 class="text-lg font-semibold text-white mb-4" data-lang-en="Contact" data-lang-hi="संपर्क करें">Contact</h3>
                      <ul class="space-y-2">
                         <li><a href="mailto:info@agrichain.com" class="hover:text-white transition-colors">info@agrichain.com</a></li>
                         <li><a href="tel:+915221234567" class="hover:text-white transition-colors">+91 (522) 123-4567</a></li>
-                        <li>Lucknow, Uttar Pradesh, India</li>
+                        <li data-lang-en="Lucknow, Uttar Pradesh, India" data-lang-hi="लखनऊ, उत्तर प्रदेश, भारत">Lucknow, Uttar Pradesh, India</li>
                     </ul>
                 </div>
             </div>
             <div class="border-t border-slate-800 pt-8 mt-8 text-center text-sm">
-                <p>&copy; 2025 AgriChain. All Rights Reserved.</p>
+                <p>&copy; 2025 AgriChain. <span data-lang-en="All Rights Reserved." data-lang-hi="सर्वाधिकार सुरक्षित।">All Rights Reserved.</span></p>
             </div>
         </div>
     </footer>
@@ -298,6 +282,39 @@
             const mobileMenu = document.getElementById('mobile-menu');
             const openIcon = document.getElementById('menu-open-icon');
             const closeIcon = document.getElementById('menu-close-icon');
+            const langSelector = document.getElementById('language-selector');
+
+            // --- Language Switcher Logic ---
+            function setLanguage(lang) {
+                document.querySelectorAll('[data-lang-en]').forEach(element => {
+                    if (lang === 'hi') {
+                        element.textContent = element.dataset.langHi;
+                    } else {
+                        element.textContent = element.dataset.langEn;
+                    }
+                });
+
+                document.querySelectorAll('[data-lang-en-placeholder]').forEach(element => {
+                    if (lang === 'hi') {
+                        element.placeholder = element.dataset.langHiPlaceholder;
+                    } else {
+                        element.placeholder = element.dataset.langEnPlaceholder;
+                    }
+                });
+
+                document.documentElement.lang = lang; // Update HTML lang attribute
+                localStorage.setItem('agrichain_lang', lang); // Save preference
+            }
+
+            // Load saved language or default to English
+            const savedLang = localStorage.getItem('agrichain_lang') || 'en';
+            langSelector.value = savedLang;
+            setLanguage(savedLang);
+
+            langSelector.addEventListener('change', (event) => {
+                setLanguage(event.target.value);
+            });
+
 
             // --- Navigation Bar Logic ---
             window.addEventListener('scroll', () => {
@@ -322,7 +339,13 @@
             window.trackProduct = function() {
                 const productId = document.getElementById('productId').value;
                 const trackingResults = document.getElementById('trackingResults');
-                if (productId.trim() === '') return alert('Please enter a valid Product ID');
+                const currentLang = localStorage.getItem('agrichain_lang') || 'en';
+
+                let alertMessage = currentLang === 'hi' 
+                    ? 'कृपया एक वैध उत्पाद आईडी दर्ज करें' 
+                    : 'Please enter a valid Product ID';
+
+                if (productId.trim() === '') return alert(alertMessage);
                 
                 trackingResults.classList.remove('hidden');
                 setTimeout(() => trackingResults.scrollIntoView({ behavior: 'smooth', block: 'center' }), 300);
